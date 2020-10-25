@@ -1,0 +1,232 @@
+/************************************/
+/*              LAYOUT              */
+/************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: #777;
+}
+body {
+    background-color: #EDEDED;
+}
+header nav, footer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+header nav {
+    height: 100%;
+}
+.contenedorPrimero {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
+/* header {
+    align-items: center;
+} */
+header ul, footer ul {
+    list-style: none;
+    padding: 10px;
+}
+header ul li, footer ul li {
+    display: inline;
+}
+.contenedorPrimero h1 {
+    white-space: nowrap;
+    margin: 10px;
+   
+}
+.contenedorPrimero .busqueda {
+    white-space: nowrap;
+    width: 70%;
+    min-width: 200px;
+    margin: 5px 5px 5px 20px;   
+}
+a {
+    text-decoration: none;
+    padding: 10px;
+}
+header {
+    background-color: cornflowerblue;    
+    padding: 10px;
+    width: 100%;
+    /* height: 80px; */
+    /* position: fixed; */
+    /* top: 0; */
+    /* z-index: 1000; */
+}
+header a, header ul{
+    color: white;
+}
+footer {
+    background: #ddd;    
+    /* position: fixed; */
+    /* bottom: 0; */
+    height: 100px;
+    width: 100%;
+}
+footer p {
+    margin: 10px;
+}
+/* main {
+    padding-top: 80px;
+} */
+
+/************************************/
+/*              INPUTS              */
+/************************************/
+input[type="text"], 
+input[type="password"], 
+input[type="search"], 
+textarea {
+    border: 1px solid #DDD;
+    outline-color: skyblue;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+input[type="search"] {
+    /* width: 60%; */
+    margin: 0;
+}
+textarea {
+    resize: none;
+    height: 200px;
+}
+input[type="submit"], .button-link, .button-comprar {
+    background-color: cornflowerblue;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: 0.5s background-color;
+    border: none;
+    outline: none;
+}
+input[type="submit"]:hover, .button-link:hover, .button-comprar:hover {
+    background-color:steelblue;
+}
+
+/************************************/
+/*          CONTENEDORES            */
+/************************************/
+.center {
+    margin: 40px auto;;
+    width: 80%;
+}
+form {
+    margin: 50px 0;
+}
+
+/************************************/
+/*             INGRESO              */
+/************************************/
+.nuevo-usuario {
+    margin-bottom: 20px;
+}
+
+/************************************/
+/*            PRODUCTOS             */
+/************************************/
+.productos li {
+    display: inline;
+}
+.grid-productos {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}
+.item-grid-productos {
+    background-color: white;
+    margin: 10px;
+    border-radius: 5px;
+}
+.item-grid-productos:hover {
+    transform: scale(1.1);
+}
+.img-grid-productos {
+    padding: 10px 0px;
+    height: 250px;
+}
+.detalle-grid-productos {
+    border-top: solid #DDD 1px;
+    padding: 10px;
+    font-weight: bold;
+}
+.detalle-grid-productos span, .precio {
+    color: steelblue;
+    font-weight: bold;
+}
+.productos {
+    margin: 10px;
+}
+.productos h3 {
+    display: inline;
+}
+.productos a, .crear-cuenta {
+    color: cornflowerblue;
+}
+.productos a:hover, .crear-cuenta:hover {
+    color: crimson;
+}
+
+/************************************/
+/*            PRODUCTO              */
+/************************************/
+.detalle-imagen {
+    /* min-width: 100px; */
+    width: 350px;
+    border-radius: 5px;
+}
+.detalle-descripcion {
+    width: 60%;
+    padding: 20px;
+}
+.detalle-descripcion .precio {
+    border-top: solid #DDD 1px;
+    border-bottom: solid #DDD 1px;
+    padding: 20px 0;
+    margin: 10px 0;
+}
+.detalle-descripcion .stock {
+    border-bottom: solid #DDD 1px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.detalle-descripcion p {
+    margin-bottom: 30px;
+}
+
+/************************************/
+/*          NAV PRODUCTOS           */
+/************************************/
+.order-nav {
+    list-style: none;
+    font-size: 14px;
+    margin: 20px 0;
+}
+.active {
+    font-weight: bold;
+    color: steelblue;
+}
+
+/************************************/
+/*            PAGINADOR             */
+/************************************/
+.paginador {
+    list-style: none;
+    margin: 40px;
+    display: block;
+    text-align: center;
+}
+.paginador li{
+    display: inline-block;
+}
+.paginador a:hover {
+    background-color: #DDD;
+}
