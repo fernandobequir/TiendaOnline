@@ -11,6 +11,7 @@
         <?php include_once ('views/layouts/header.php') ?> 
     </header>
     <main>
+        <h1>PRUEBA DE BRANCH GIT</h1>
         <?php include_once ('config/routing.php') ?> 
     </main>
     <footer>
