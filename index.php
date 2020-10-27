@@ -1,3 +1,5 @@
+<?php require_once ('config/loader.php') ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
