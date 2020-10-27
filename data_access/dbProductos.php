@@ -84,7 +84,7 @@ function countProductos($filtro)
             break;
         case 'todos-los-productos';
             $consulta = "SELECT COUNT(*) AS total FROM productos
-                            ORDER BY Fecha LIMIT 12";
+                            ORDER BY Fecha";
             break;
         default:
             $consulta = "SELECT COUNT(*) AS total FROM productos AS P 
