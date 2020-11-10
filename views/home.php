@@ -7,7 +7,27 @@
 	    <div class="grid-productos">
 
 	        <!-- Productos -->
-	        <?php selectProductos('productos-destacados','' , 1, 4); ?>
+			<?php 
+				$productos = selectProductos('productos-destacados','' , 1, 4);
+
+				foreach ($productos as $producto) {
+					$id = $producto['idProducto'];
+					$nombre = $producto['Nombre'];
+					$precio = $producto['Precio'];
+					$imagen = $producto['Imagen'];
+			?>
+
+					<div class="item-grid-productos">
+						<a href="?menu=producto&item=<?= $id ?>">
+							<img class="img-grid-productos" src="img/productos/<?= $imagen ?>" alt="<?= $nombre ?>" />
+							<div class="detalle-grid-productos">
+								<span>$ <?= $precio ?></span>
+								<p><?= $nombre ?></p>
+							</div>
+						</a>
+					</div>
+
+			<?php } ?>
 
 	    </div>
 	</div>
@@ -20,7 +40,27 @@
 	    <div class="grid-productos">
 
 	        <!-- Productos -->
-	        <?php selectProductos('todos-los-productos', '', 1, 4); ?>
+			<?php 
+				$productos = selectProductos('todos-los-productos', '', 1, 4);
+
+				foreach ($productos as $producto) {
+					$id = $producto['idProducto'];
+					$nombre = $producto['Nombre'];
+					$precio = $producto['Precio'];
+					$imagen = $producto['Imagen'];
+			?>
+
+					<div class="item-grid-productos">
+						<a href="?menu=producto&item=<?= $id ?>">
+							<img class="img-grid-productos" src="img/productos/<?= $imagen ?>" alt="<?= $nombre ?>" />
+							<div class="detalle-grid-productos">
+								<span>$ <?= $precio ?></span>
+								<p><?= $nombre ?></p>
+							</div>
+						</a>
+					</div>
+
+			<?php } ?>
 
 	    </div>
 	</div>

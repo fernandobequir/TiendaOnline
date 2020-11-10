@@ -1,10 +1,9 @@
 <?php
 
 if (isset($_POST["registrar"])) {
-
+	
 	$usuario = [
-				"Nombre" => $_POST["nombre"],				
-				"Apellido" => $_POST["apellido"],
+				"RazonSocial" => $_POST["razon_social"], // business_name
 				"Direccion" => "",
 				"Telefono" => "",
 				"Email" => $_POST["email"],
@@ -12,7 +11,7 @@ if (isset($_POST["registrar"])) {
 				];
 
 	if (!existMailUsuario($_POST["email"])) {
-		if (insertUsuario(0, $usuario)) {
+		if (insertUsuario(1, $usuario)) {
 			// insertado correctamente
 			?>
 	
@@ -42,17 +41,14 @@ if (isset($_POST["registrar"])) {
 
 ?>
 
+
 <div class="center-small">
-	<h3>NUEVO USUARIO</h3>
+	<h3>NUEVA EMPRESA</h3>
 	
 	<form action="" method="POST">
 		<div>
-			<span>Nombre: <sup>*</sup></span>
-			<input type="text" name="nombre" required>
-		</div>
-		<div>
-			<span>Apellido: <sup>*</sup></span>
-			<input type="text" name="apellido" required>
+			<span>Razón Social: <sup>*</sup></span>
+			<input type="text" name="razon_social" required>
 		</div>
 		<div>
 			<span>E-Mail: <sup>*</sup></span>
@@ -64,5 +60,5 @@ if (isset($_POST["registrar"])) {
 		</div>
 			<input type="submit" value="REGISTRARME" name="registrar">
 	</form>
-	<a class="crear-cuenta" href="?menu=registro-empresa"> ó crear una cuenta empresa ></a>
+	<a class="crear-cuenta" href="?menu=registro"> ó crear una cuenta personal ></a>
 </div>
