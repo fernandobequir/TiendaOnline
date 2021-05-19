@@ -6,5 +6,4 @@ if (!$_SESSION["Usuario"]["Administrador"]) {
 
 ?>
 
-<h1 style="text-align: center; margin: 20px">VENTAS</h1>
-<h2 style="text-align: center; margin: 20px">(funciones de admin)</h2>
+<h3 style="margin: 20px">Aún no se realizó ninguna venta</h3>

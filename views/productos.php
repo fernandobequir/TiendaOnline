@@ -1,4 +1,8 @@
 <?php
+// Si es administrador no va a comprar
+if (isset($_SESSION["Usuario"]) && $_SESSION["Usuario"]["Administrador"] == 1) {
+    header('location: ?menu=panel&modulo=ventas');
+}
 
     if (isset($_GET['buscar'])) {
         $filtro = $_GET['buscar'];

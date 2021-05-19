@@ -1,2 +1,11 @@
-<h1 style="text-align: center; margin: 20px">COMPRAS</h1>
-<h2 style="text-align: center; margin: 20px">(funciones de user)</h2>
+<?php
+// Si es administrador no va a comprar
+if ($_SESSION["Usuario"]["Administrador"] == 1) {
+    header('location: ./');
+}
+
+?>
+
+
+<h3 style="margin: 20px">Todavia no has comprado</h3>
+<a style="margin: 20px" class="button-link" href="./">Vamos a comprar!</a>

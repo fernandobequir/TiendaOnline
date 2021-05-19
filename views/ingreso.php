@@ -6,12 +6,13 @@
 			$pass = $_POST["pass"];
 		
 			$usuario = loginUsuario($email, $pass);
-		
+
 			if ($usuario) {        
 				// acceso correcto
 				session_start();
 		
 				$_SESSION["Usuario"] = array(
+					"Id" => $usuario["idUsuario"],
 					"Nombre" => ($usuario["Nombre"]) ? $usuario["Nombre"] : $usuario["RazonSocial"] ,
 					"Apellido" => $usuario["Apellido"],
 					"Email" => $usuario["Email"],
@@ -52,5 +53,5 @@
 		<a class="crear-cuenta" href="#">¿Olvidaste tu contraseña?</a>
 	</form>
 	<h4 class="nuevo-usuario">¿NUEVO USUARIO?</h4>
-	<a class="button-link" href="?menu=registro">CREAR CUENTA</a>
+	<a class="button-link button-border" href="?menu=registro">CREAR CUENTA</a>
 </div>

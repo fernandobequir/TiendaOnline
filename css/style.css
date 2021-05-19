@@ -22,6 +22,9 @@ header nav, footer{
 footer {
     align-items: center;
 }
+footer a{
+    padding: 10px;
+}
 footer div {
     display: flex;
     flex-direction: column;
@@ -32,11 +35,18 @@ header nav {
 .contenedorPrimero {
     display: flex;
     flex-wrap: wrap;
-    width: 60%;
+    width:90%;
     margin: 10px;
 }
 .contenedor-segundo {
-    margin-top: 24px;
+    /*margin-top: 46px;*/
+    margin-top: 0;
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: end;
+}
+.contenedor-segundo a {
+    padding: 20px 10px;
 }
 header ul, footer ul {
     list-style: none;
@@ -57,7 +67,7 @@ header ul li, footer ul li {
 }
 a {
     text-decoration: none;
-    padding: 10px;
+    /*padding: 10px;*/
 }
 header {
     background-color: cornflowerblue;    
@@ -89,19 +99,150 @@ footer p {
 main {
     min-height: 455px;
 }
+body form {
+    margin: 20px 0;
+}
+
+/************************************/
+/*             TABLAS            */
+/************************************/
+table{
+    width: 100%;
+    background: white;
+    margin-bottom: 1.25em;
+    border: solid 1px #dddddd;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*table tr:last-child {
+    font-weight: bold;
+}*/
+th,tr,td{
+    color: #708090;
+    /* border:1px solid #ededed; */
+    padding:2px;
+    vertical-align:middle;
+    text-align:center;
+}
+th{
+    color:#fff;
+    background-color: #4682B4;
+}
+tr:nth-child(odd) td{
+    background-color:#eee;
+}
+
+/* MEDIAQUERY resp */
+@media only screen and (max-width: 992px) {
+    table.resp, .resp thead, .resp tbody, .resp tr,	.resp th, .resp td,	.resp caption {
+	  display: block;
+	}	
+	table.resp {
+	  border: none
+	}	
+	.resp thead tr {
+	  display: none;
+	}	
+	.resp tbody tr {
+	  margin: 1em 0;
+	  border: 1px solid cornflowerblue;
+	}	
+	.resp td {
+	  border: none;
+	  border-bottom: 1px solid #dddddd;
+	  position: relative;
+	  padding-left: 45%;
+	  text-align: left;
+	}	
+	.resp tr td:last-child {
+	  border-bottom: 1px double #dddddd;
+	}	
+	.resp tr:last-child td:last-child {
+	  border: none;
+	}	
+	.resp td:before {
+	  position: absolute;
+	  top: 6px;
+	  left: 6px;
+	  width: 45%;
+	  padding-right: 10px;
+	  white-space: nowrap;
+	  text-align: left;
+	  font-weight: bold;
+	}
+
+    .resp td:nth-of-type(1):before { content: "Imagen"; }      
+    .resp td:nth-of-type(2):before { content: "Nombre"; }      
+    .resp td:nth-of-type(3):before { content: "Precio"; }      
+    .resp td:nth-of-type(4):before { content: "Marca"; }      
+    .resp td:nth-of-type(5):before { content: "Categoria"; }      
+    .resp td:nth-of-type(6):before { content: "Presentacion"; }
+    .resp td:nth-of-type(7):before { content: "Stock"; }
+    .resp td:nth-of-type(8):before { content: "Acciones"; }
+}
+
+/* MEDIAQUERY responsive-carrito */
+@media only screen and (max-width: 992px) {
+    table.responsive-carrito, .responsive-carrito thead, .responsive-carrito tbody, .responsive-carrito tr,	.responsive-carrito th, .responsive-carrito td,	.responsive-carrito caption {
+	  display: block;
+	}	
+	table.responsive-carrito {
+	  border: none
+	}	
+	.responsive-carrito thead tr {
+	  display: none;
+	}	
+	.responsive-carrito tbody tr {
+	  margin: 1em 0;
+	  border: 1px solid cornflowerblue;
+	}	
+	.responsive-carrito td {
+	  border: none;
+	  border-bottom: 1px solid #dddddd;
+	  position: relative;
+	  padding-left: 45%;
+	  text-align: left;
+	}	
+	.responsive-carrito tr td:last-child {
+	  border-bottom: 1px double #dddddd;
+	}	
+	.responsive-carrito tr:last-child td:last-child {
+	  border: none;
+	}	
+	.responsive-carrito td:before {
+	  position: absolute;
+	  top: 6px;
+	  left: 6px;
+	  width: 45%;
+	  padding-right: 10px;
+	  white-space: nowrap;
+	  text-align: left;
+	  font-weight: bold;
+	}
+
+    .responsive-carrito td:nth-of-type(1):before { content: "Imagen"; }      
+    .responsive-carrito td:nth-of-type(2):before { content: "Nombre"; }      
+    .responsive-carrito td:nth-of-type(3):before { content: "Cantidad"; }      
+    .responsive-carrito td:nth-of-type(4):before { content: "Precio"; }
+    .responsive-carrito td:nth-of-type(5):before { content: "Total"; }
+    .responsive-carrito td:nth-of-type(6):before { content: "Quitar"; }
+}
 
 /************************************/
 /*              INPUTS              */
 /************************************/
+select,
 input[type="text"], 
+input[type="number"], 
 input[type="password"], 
 input[type="search"], 
 textarea {
+    font-size: 14px;
     border: 1px solid #DDD;
     outline-color: skyblue;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 6px;
+    margin-bottom: 10px;
     border-radius: 5px;
 }
 input[type="search"] {
@@ -112,6 +253,9 @@ textarea {
     resize: none;
     height: 200px;
 }
+input[type="file"] {
+    display: none;
+}
 input[type="submit"], .button-link, .button-comprar {
     background-color: cornflowerblue;
     color: #FFF;
@@ -121,9 +265,17 @@ input[type="submit"], .button-link, .button-comprar {
     transition: 0.5s background-color;
     border: none;
     outline: none;
+    display: inline-block;
+}
+.button-border {
+    background-color: #FFF;
+    color: cornflowerblue;
+    box-shadow: inset 0 0 0 1px cornflowerblue;
+    /*border: 1px solid cornflowerblue;*/
 }
 input[type="submit"]:hover, .button-link:hover, .button-comprar:hover {
     background-color:steelblue;
+    color: #FFF;
 }
 
 /************************************/
@@ -303,9 +455,23 @@ form {
     margin-top: 8px;
     background: #fff;
     width: 200px;
-    right: 100px;
+    right: 60px;
     border-radius: 5px;
     box-shadow: 0 15px 20px 0 rgba(0,0,0,.08), 0 1px 4px 0 rgba(0,0,0,.08);
+    z-index: 1;
+    text-align: start;
+}
+.nav-user::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    top: -6px;
+    left: 150px;
+    position: absolute;
+    display: block;
 }
 .desplegable:hover .nav-user {
     display: block;
@@ -318,7 +484,6 @@ form {
     color:  #777;
     cursor: pointer;
     transition: background-color 0.4s;
-
 }
 .separador {
     display: block;
@@ -340,11 +505,13 @@ form {
     padding: 5px 0;
 }
 .nav-panel a{
-    display: block;
-    padding: 8px 24px;
+    display: flex;
+    padding: 8px 0px;
+    align-items: center;
     color:  #777;
     cursor: pointer;
     box-sizing: content-box;
+    border-left: 6px solid transparent;
     transition: background-color 0.4s;
 }
 .nav-panel a:hover {
@@ -354,15 +521,35 @@ form {
 }
 .nav-active {
     background-color:  #ededed;
-    border-left: 6px solid cornflowerblue;
+    border-left-color: cornflowerblue !important;
     color: cornflowerblue !important;
-    padding-left: 18px !important;
+    /*padding-left: 4px !important;*/
+}
+.nav-panel a i {
+    font-size: 24px;
+    width: 50px;
+    text-align: center;
 }
 .container-panel {
-    width: 80%;
+    width: auto;
     margin-left: 20%;
     padding: 10px;
     background-color: #f8f8f8;
 
     min-height: 455px;
 }
+
+/* MEDIAQUERY */
+@media only screen and (max-width: 992px) {
+    .nav-panel a span{
+        display: none;
+    }
+    .nav-panel {
+        width: 60px;
+    }
+    .container-panel {
+        width: auto;
+        margin-left: 60px;
+    }
+}
+

@@ -63,6 +63,8 @@ if (isset($_POST["registrar"])) {
 			<input type="password" name="pass">
 		</div>
 			<input type="submit" value="REGISTRARME" name="registrar">
+			<br><br>
+			<a class="crear-cuenta" href="?menu=registro-empresa"> ó crear una cuenta empresa ></a>
 	</form>
-	<a class="crear-cuenta" href="?menu=registro-empresa"> ó crear una cuenta empresa ></a>
+	
 </div>
