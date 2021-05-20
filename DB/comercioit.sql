@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2020 a las 22:04:52
+-- Tiempo de generación: 20-05-2021 a las 20:45:21
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.8
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `comercioit`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito`
+--
+
+CREATE TABLE `carrito` (
+  `id` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -45,6 +58,78 @@ INSERT INTO `categorias` (`idCategoria`, `Nombre`, `Hijo_de`) VALUES
 (5, 'Cargadores', 2),
 (6, 'Notebooks', 0),
 (7, 'Fundas', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes_empresa`
+--
+
+CREATE TABLE `clientes_empresa` (
+  `id` int(11) NOT NULL,
+  `razonSocial` varchar(100) NOT NULL,
+  `direccion` varchar(100) NOT NULL,
+  `telefono` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `clientes_empresa`
+--
+
+INSERT INTO `clientes_empresa` (`id`, `razonSocial`, `direccion`, `telefono`) VALUES
+(1, 'Administrador', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes_usuario`
+--
+
+CREATE TABLE `clientes_usuario` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `direccion` varchar(100) NOT NULL,
+  `telefono` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_venta`
+--
+
+CREATE TABLE `detalle_venta` (
+  `id` int(11) NOT NULL,
+  `idVenta` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `precio` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `login`
+--
+
+CREATE TABLE `login` (
+  `idUsuario` int(11) NOT NULL,
+  `rol` int(11) NOT NULL,
+  `idClienteEmpresa` int(11) NOT NULL,
+  `idClienteUsuario` int(11) NOT NULL,
+  `Email` varchar(30) NOT NULL,
+  `Pass` text NOT NULL,
+  `Activacion` text NOT NULL,
+  `Estado` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `login`
+--
+
+INSERT INTO `login` (`idUsuario`, `rol`, `idClienteEmpresa`, `idClienteUsuario`, `Email`, `Pass`, `Activacion`, `Estado`) VALUES
+(1, 1, 1, 0, 'admin@admin.com', 'admin', '', 1);
 
 -- --------------------------------------------------------
 
@@ -102,48 +187,69 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`idProducto`, `Nombre`, `Precio`, `Marca`, `Categoria`, `Presentacion`, `Descripcion`, `Stock`, `Imagen`, `Destacado`, `Fecha`) VALUES
-(1, 'iPhone 6', 499.99, 1, 2, '16GB', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 500, 'P001.jpg', 1, '2020-10-26 00:48:07'),
-(2, 'iPad Pro', 599.99, 1, 3, '32GB', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 300, 'P002.jpg', 0, '2020-10-25 00:48:07'),
+(1, 'iPhone 6', 499.99, 1, 2, '16GB', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 499, 'P001.jpg', 1, '2020-10-26 00:48:07'),
+(2, 'iPad Pro', 599.99, 1, 3, '32GB', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 299, 'P002.jpg', 0, '2020-10-25 00:48:07'),
 (3, 'Nexus 7', 299.99, 6, 3, '32GB', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 300, 'P003.jpg', 1, '2020-10-26 00:48:07'),
 (4, 'Galaxy S7', 459.9, 2, 2, '64GB', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 650, 'P004.jpg', 0, '2020-10-25 00:48:07'),
 (5, 'Moto G', 489.99, 5, 2, '8GB', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 750, 'P005.jpg', 0, '2020-10-26 00:48:07'),
 (6, 'L40', 199.69, 4, 2, '24GB', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 350, 'P006.jpg', 0, '2020-10-25 00:48:07'),
-(8, 'Relojito', 999, 1, 1, 'cajita', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 1000, 'P007.jpg', 1, '2020-10-26 00:48:07');
+(7, 'Reloj Smartwatch', 395, 8, 4, '4GB', '', 10, 'P007.jpg', 0, '2021-05-20 23:40:48');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `ventas`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE `ventas` (
+  `id` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Apellido` varchar(30) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Pass` text NOT NULL,
-  `Activacion` text NOT NULL,
-  `Estado` tinyint(1) DEFAULT 0
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `estado` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`idUsuario`, `Nombre`, `Apellido`, `Email`, `Pass`, `Activacion`, `Estado`) VALUES
-(1, 'admin', 'admin', 'admin@admin.com', '$2y$10$zYH5CY5M17DYsC0zPCABu.acQphxUEZFBkss/RjUhOu4j8EFlIRV.', '0d3ccb5cb418d3d648bfbc768fabd1b1', 1),
-(2, '', '', '', '$2y$10$M/iL1EszF8fb0DcitdNhaeQlj/.4g2uLLiB/YSdUuRQLDoPcbBKye', 'bd8be3f5c0af2b07adfb870458d3b883', 0),
-(3, 'Fernando Franco', 'Bequir Rodrigo', 'sdf@hgh.jh', '$2y$10$aXNK1uM4zwxzwUWiYPNtculsEorpyT/6QKlATSxFzWogQ98JjkVj2', '4f74f410a3a7017e2e142f3ce3ec14d0', 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`idCategoria`);
+
+--
+-- Indices de la tabla `clientes_empresa`
+--
+ALTER TABLE `clientes_empresa`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `clientes_usuario`
+--
+ALTER TABLE `clientes_usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `detalle_venta`
+--
+ALTER TABLE `detalle_venta`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idProducto` (`idProducto`),
+  ADD KEY `idVenta` (`idVenta`);
+
+--
+-- Indices de la tabla `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`idUsuario`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- Indices de la tabla `marcas`
@@ -160,21 +266,51 @@ ALTER TABLE `productos`
   ADD KEY `Rubro` (`Categoria`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `ventas`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`idUsuario`),
-  ADD UNIQUE KEY `Email` (`Email`);
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
+-- AUTO_INCREMENT de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `clientes_empresa`
+--
+ALTER TABLE `clientes_empresa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `clientes_usuario`
+--
+ALTER TABLE `clientes_usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `detalle_venta`
+--
+ALTER TABLE `detalle_venta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `login`
+--
+ALTER TABLE `login`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`
@@ -186,17 +322,24 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `ventas`
 --
-ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `ventas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `detalle_venta`
+--
+ALTER TABLE `detalle_venta`
+  ADD CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProducto`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `detalle_venta_ibfk_2` FOREIGN KEY (`idVenta`) REFERENCES `ventas` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `productos`
@@ -204,6 +347,12 @@ ALTER TABLE `usuarios`
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`Marca`) REFERENCES `marcas` (`idMarca`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`Categoria`) REFERENCES `categorias` (`idCategoria`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `login` (`idUsuario`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

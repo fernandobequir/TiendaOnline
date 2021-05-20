@@ -1,6 +1,14 @@
+<?php
+	session_start();
+?>
+
 <nav>
 	<div class="contenedorPrimero">
 		<h1><a href="./"><i class="fab fa-opencart" style="font-size: 32px; padding-right: 8px;"></i>Tienda Online</a></h1>
+		
+	<?php 
+	if (!isset($_SESSION["Usuario"]) || $_SESSION["Usuario"]["Administrador"] == 0) { 
+		?>
 		<form class="busqueda"  action="" method="GET">
 			<!-- para agregar la vista de ?menu=productos en la url -->
 			<input type="hidden" name="menu" value="productos">
@@ -9,11 +17,13 @@
 			<!-- <input type="submit" value="BUSCAR"> -->
 			<button class="button-link" type="submit" value="buscar"><i class="fas fa-search" style="font-size: 18px;"></i></button>
 		</form>
+	<?php } ?>
+	
+	
 	</div>
 	
 	<ul class="contenedor-segundo">
 		<?php
-			session_start();
 			if (isset($_SESSION["Usuario"])) {
 		?>
 			<?php // MENU DESPLEGABLE ?>
@@ -54,7 +64,8 @@
 						$productosCarrito = SelectCarrito($idCliente);
 						// compruebo si el usuario tiene productos en carrito
 						if (!empty($productosCarrito)) { ?>
-					<i class="fas fa-circle" style="position:absolute; color:crimson; font-size:0.6em; left:23px; top:14px"></i>
+					<i class="fas fa-circle" style="position:absolute; color:crimson; font-size:0.6em; left:24px; top:13px"></i>
+					<span style="position:absolute; color:#777; font-size:0.8em; left:17px; top:18px"><?= count($productosCarrito) ?></span>
 				<?php } } ?>
 
 				</i>				

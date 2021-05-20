@@ -11,7 +11,7 @@ if (!isset($_SESSION["Usuario"])) {
     }
 
     $usuario = $_SESSION["Usuario"];
-    $idCliente = $usuario["Id"];
+    $idUsuario = $usuario["Id"];
 
     $productosCarrito = SelectCarrito($idCliente);
     if (!empty($productosCarrito)) {
@@ -21,20 +21,28 @@ if (!isset($_SESSION["Usuario"])) {
         if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 
             if(isset($_POST['pagar'])){
-
-                // agregar compra a venta ...
-                // si es ok
-                // vaciar carrito...
-                DeleteCarrito($idCliente);
-
-                header('location: ?menu=checkOutRta');
+                if ($_POST["isValidBuy"]) {
+                    // agregar compra a venta ... si es ok
+                    if (InsertVenta($idUsuario, $productosCarrito)) {
+                        // resto stock de cada producto
+                        UpdateProductoStock($productosCarrito);
+                        // vaciar carrito...
+                        DeleteCarrito($idUsuario);
+                    } else {
+                        echo ("<h2 class='msj-error'>Hubo un error al intentar comprar. Por favor intente más tarde</h2>");
+                    }
+                    header('location: ?menu=checkOutRta');
+                } else {
+                    echo ("<h2 class='msj-error'>No se puede comprar porque no hay stock</h2>");
+                }
+                
             }
         }
     
 
 
 ?>
-<h2 style="margin:20px; text-align:center;">Check Out</h2>
+<h2 style="margin:20px; text-align:center;">Comprar</h2>
 <form action="" method="POST">
 <table class="responsive-carrito center">
     <thead>

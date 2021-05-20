@@ -50,7 +50,7 @@
 			<input type="password" name="pass" required>
 		</div>
 		<input type="submit" value="INGRESAR" name="login">
-		<a class="crear-cuenta" href="#">¿Olvidaste tu contraseña?</a>
+		<!-- <a class="crear-cuenta" href="#">¿Olvidaste tu contraseña?</a> -->
 	</form>
 	<h4 class="nuevo-usuario">¿NUEVO USUARIO?</h4>
 	<a class="button-link button-border" href="?menu=registro">CREAR CUENTA</a>

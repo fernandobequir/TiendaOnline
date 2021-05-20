@@ -184,6 +184,32 @@ function UpdateProducto($id, $nombre, $precio, $marca, $categoria, $presentacion
 }
 
 /*****************************************************************************
+ *                   ACTUALIZA STOCK DE PRODUCTOS VENDIDOS
+ *****************************************************************************/
+function UpdateProductoStock($productos){
+    global $conexion;
+
+    foreach ($productos as $producto) {
+        $idProducto = $producto['idProducto'];
+        $stock = (int)$producto['Stock'];
+        $cantidad = (int)$producto['cantidad'];
+        
+        $stock = $stock - $cantidad;
+
+        $consulta ="UPDATE productos 
+        SET Stock = $stock 
+        WHERE idProducto = $idProducto";
+        
+        mysqli_query($conexion, $consulta);
+
+        return mysqli_affected_rows($conexion);
+    }
+
+
+}
+
+
+/*****************************************************************************
  *                      ELIMINA UN PRODUCTO POR EL ID
  *****************************************************************************/
 function DeleteProducto($id){

@@ -132,35 +132,35 @@ tr:nth-child(odd) td{
     background-color:#eee;
 }
 
-/* MEDIAQUERY resp */
+/* MEDIAQUERY tabla responsive */
 @media only screen and (max-width: 992px) {
-    table.resp, .resp thead, .resp tbody, .resp tr,	.resp th, .resp td,	.resp caption {
+    table, thead, tbody, tr, th, td, caption {
 	  display: block;
 	}	
-	table.resp {
+	table {
 	  border: none
 	}	
-	.resp thead tr {
+	thead tr {
 	  display: none;
 	}	
-	.resp tbody tr {
+	tbody tr {
 	  margin: 1em 0;
 	  border: 1px solid cornflowerblue;
 	}	
-	.resp td {
+	td {
 	  border: none;
 	  border-bottom: 1px solid #dddddd;
 	  position: relative;
 	  padding-left: 45%;
 	  text-align: left;
 	}	
-	.resp tr td:last-child {
+	tr td:last-child {
 	  border-bottom: 1px double #dddddd;
 	}	
-	.resp tr:last-child td:last-child {
+	tr:last-child td:last-child {
 	  border: none;
 	}	
-	.resp td:before {
+	td:before {
 	  position: absolute;
 	  top: 6px;
 	  left: 6px;
@@ -179,46 +179,6 @@ tr:nth-child(odd) td{
     .resp td:nth-of-type(6):before { content: "Presentacion"; }
     .resp td:nth-of-type(7):before { content: "Stock"; }
     .resp td:nth-of-type(8):before { content: "Acciones"; }
-}
-
-/* MEDIAQUERY responsive-carrito */
-@media only screen and (max-width: 992px) {
-    table.responsive-carrito, .responsive-carrito thead, .responsive-carrito tbody, .responsive-carrito tr,	.responsive-carrito th, .responsive-carrito td,	.responsive-carrito caption {
-	  display: block;
-	}	
-	table.responsive-carrito {
-	  border: none
-	}	
-	.responsive-carrito thead tr {
-	  display: none;
-	}	
-	.responsive-carrito tbody tr {
-	  margin: 1em 0;
-	  border: 1px solid cornflowerblue;
-	}	
-	.responsive-carrito td {
-	  border: none;
-	  border-bottom: 1px solid #dddddd;
-	  position: relative;
-	  padding-left: 45%;
-	  text-align: left;
-	}	
-	.responsive-carrito tr td:last-child {
-	  border-bottom: 1px double #dddddd;
-	}	
-	.responsive-carrito tr:last-child td:last-child {
-	  border: none;
-	}	
-	.responsive-carrito td:before {
-	  position: absolute;
-	  top: 6px;
-	  left: 6px;
-	  width: 45%;
-	  padding-right: 10px;
-	  white-space: nowrap;
-	  text-align: left;
-	  font-weight: bold;
-	}
 
     .responsive-carrito td:nth-of-type(1):before { content: "Imagen"; }      
     .responsive-carrito td:nth-of-type(2):before { content: "Nombre"; }      
@@ -226,7 +186,27 @@ tr:nth-child(odd) td{
     .responsive-carrito td:nth-of-type(4):before { content: "Precio"; }
     .responsive-carrito td:nth-of-type(5):before { content: "Total"; }
     .responsive-carrito td:nth-of-type(6):before { content: "Quitar"; }
+
+    .responsive-ventas td:nth-of-type(1):before { content: "N°"; }      
+    .responsive-ventas td:nth-of-type(2):before { content: "Fecha"; }      
+    .responsive-ventas td:nth-of-type(3):before { content: "Cliente"; }      
+    .responsive-ventas td:nth-of-type(4):before { content: "Producto"; }
+    .responsive-ventas td:nth-of-type(5):before { content: "Cantidad"; }
+    .responsive-ventas td:nth-of-type(6):before { content: "Precio"; }
+    .responsive-ventas td:nth-of-type(7):before { content: "Total"; }
+    .responsive-ventas td:nth-of-type(8):before { content: "Estado"; }
+    .responsive-ventas td:nth-of-type(9):before { content: "Cambiar Estado"; }
+
+    .responsive-compras td:nth-of-type(1):before { content: "N° Ref."; }      
+    .responsive-compras td:nth-of-type(2):before { content: "Fecha"; }      
+    .responsive-compras td:nth-of-type(3):before { content: "Producto"; }      
+    .responsive-compras td:nth-of-type(4):before { content: "Cantidad"; }
+    .responsive-compras td:nth-of-type(5):before { content: "Precio"; }
+    .responsive-compras td:nth-of-type(6):before { content: "Total"; }
+    .responsive-compras td:nth-of-type(7):before { content: "Estado"; }
+
 }
+
 
 /************************************/
 /*              INPUTS              */
