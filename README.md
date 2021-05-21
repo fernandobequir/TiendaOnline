@@ -10,4 +10,4 @@ Contraseña: admin
 
 Para poder comprar hay que registrarse en la opción "Registrarme".
 
-* Todas las compras se registran en la base de datos, aunque son ficticias ya que no hay una pasarela de pagos programada.
+NOTA: "Todas las compras se registran en la base de datos, aunque son ficticias ya que no hay una pasarela de pagos programada".
